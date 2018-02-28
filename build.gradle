@@ -1,6 +1,7 @@
 plugins {
     id 'java'
     id 'com.github.johnrengelman.shadow' version '2.0.2'
+    id "com.github.maiflai.scalatest" version "0.19"
 }
 
 group 'template.spark'
@@ -48,7 +49,8 @@ dependencies {
 
     compile group: 'commons-io', name: 'commons-io', version: '2.6'
 
-    compile 'org.scalatest:scalatest_2.11:3.0.5'
+    testCompile 'org.scalatest:scalatest_2.11:3.0.5'
+    testRuntime 'org.pegdown:pegdown:1.6.0'
 }
 
 task run(type: JavaExec, dependsOn: classes) {
@@ -56,6 +58,10 @@ task run(type: JavaExec, dependsOn: classes) {
     classpath sourceSets.main.runtimeClasspath
     classpath configurations.runtime
 }
+
+//test {
+//    maxParallelForks = 1
+//}
 
 jar {
     classifier = 'all'
