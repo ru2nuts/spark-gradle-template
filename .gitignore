@@ -529,6 +529,7 @@ paket-files/
 
 # JetBrains Rider
 .idea/
+*.iml
 *.sln.iml
 ### Maven template
 pom.xml.tag
